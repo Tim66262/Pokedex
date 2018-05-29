@@ -12,6 +12,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * Click auf das Ei
+     * @param view
+     */
     public void onClickEi(View view) {
 
     }
