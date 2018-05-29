@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Click auf das Ei
+     * Click auf das Ei//
      * @param view
      */
     public void onClickEi(View view) {
