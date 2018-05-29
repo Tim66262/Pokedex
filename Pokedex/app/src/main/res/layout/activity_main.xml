@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#21b151"
+    >
+
+    <Button
+        android:id="@+id/button"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="414dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="176dp"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:text="Welcome to the Pokedex Application"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="45dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="138dp"
+        android:layout_height="141dp"
+        android:adjustViewBounds="true"
+        android:background="#21b151"
+        android:onClick="onClickEi"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/egg"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="162dp" />
+
+</android.support.constraint.ConstraintLayout>
