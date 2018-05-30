@@ -17,10 +17,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityListe"
-            android:label="ActivityListe"
+            android:label="Liste"
             android:screenOrientation="portrait" />
         <activity android:name=".ActivityEinzelansicht"
-            android:label="ActivityEinzelansicht"
+            android:label="Einzelansicht"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ActivityFavoriten"
+            android:label="Favoriten"
             android:screenOrientation="portrait" />
     </application>
 

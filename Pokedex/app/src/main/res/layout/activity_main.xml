@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#21b151"
+    android:background="#FFFFFF"
     >
 
     <Button
@@ -14,10 +14,10 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:onClick="onClickStart"
         android:text="Start"
-        android:textColor="@android:color/white"
+        android:textColor="#a67d7d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgBtnEi" />
@@ -31,7 +31,7 @@
         android:gravity="center"
         android:text="Welcome to the Pokedex Application"
         android:textAllCaps="false"
-        android:textColor="@android:color/white"
+        android:textColor="#a67d7d"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/imgBtnEi"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="68dp"
         android:adjustViewBounds="true"
-        android:background="#21b151"
+        android:background="#FFFFFF"
         android:onClick="onClickEi"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
