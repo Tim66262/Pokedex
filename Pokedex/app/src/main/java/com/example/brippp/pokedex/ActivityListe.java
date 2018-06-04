@@ -20,111 +20,13 @@ public class ActivityListe extends AppCompatActivity{
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste);
-
-
-        //Bundle extras = getIntent().getExtras();
-        //antwort = extras.getString("STRING_I_NEED");
-        //antwort2 = extras.getString("STRING");
-
-        //element_UserName.setText(antwort);
-        //element_PWD.setText(antwort2);
-        //Anmelde Daten in Variable speichern
-        /*
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
-        */
-    }//OnCreate
-
-/*
-    private void setupTabIcons() {
-        int[] tabIcons = {
-                R.drawable.glurak,
-                R.drawable.test1,
-                //R.drawable.ic_tab_contacts
-        };
-
-        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        //tabLayout.getTabAt(2).setIcon(tabIcons[2]);
     }
-
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new OneFragment(), "ONE");
-        adapter.addFrag(new TwoFragment(), "TWO");
-        //adapter.addFrag(new ThreeFragment(), "THREE");
-        viewPager.setAdapter(adapter);
-    }
-
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFrag(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-
-            // return null to display only the icon
-            return null;
-        }
-        */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //Onlick Liste
     public void onClickopenListe(View view) {

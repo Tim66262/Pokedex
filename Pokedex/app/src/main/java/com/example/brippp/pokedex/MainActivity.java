@@ -30,16 +30,9 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     //Element deklaration
-<<<<<<< HEAD
-    private int counter;
-    private ImageButton btnAbbuchen, btnAbbuchen2;
-=======
 
     private int counter;
     private ImageButton btnAbbuchen, btnAbbuchen2;
-
-
->>>>>>> 2206822aa9005039492616ec6d324b8b29d798f9
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,29 +54,21 @@ public class MainActivity extends AppCompatActivity {
                 TextView weight = (TextView) findViewById(R.id.weight);
                 TextView find = (TextView) findViewById(R.id.find);
 
-<<<<<<< HEAD
-=======
+
                 Picasso.get().load(pokemon.getFrontImage()).into(imageView);
 
->>>>>>> 2206822aa9005039492616ec6d324b8b29d798f9
 
 
                 name.setText(pokemon.getName());
                 size.setText(Integer.toString(pokemon.getHeight()));
                 weight.setText(Integer.toString(pokemon.getWeight()));
                 find.setText(Integer.toString(pokemon.getBase_experience()));
-<<<<<<< HEAD
                 Picasso.get().load(pokemon.getFrontImage()).into(imageView);
 
             }
         });
     }
 
-=======
-
-            }
-        });
-    }
 
 
     //element_UserName.setText(antwort);
@@ -98,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
         setupTabIcons();
         */
 
-
->>>>>>> 2206822aa9005039492616ec6d324b8b29d798f9
 
     public void onClickEi(final View view) {
         counter += 1;
@@ -119,4 +102,4 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, ActivityListe.class);
         startActivity(i);
     }
-        }
+}
