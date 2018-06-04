@@ -1,15 +1,20 @@
 package com.example.brippp.pokedex;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -30,29 +35,19 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     //Element deklaration
-<<<<<<< HEAD
     private int counter;
     private ImageButton btnAbbuchen, btnAbbuchen2;
-=======
-
-    private int counter;
-    private ImageButton btnAbbuchen, btnAbbuchen2;
-
-
->>>>>>> 2206822aa9005039492616ec6d324b8b29d798f9
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //TODO: activity_main
         setContentView(R.layout.activity_einzelansicht);
-
         this.btnAbbuchen = (ImageButton) findViewById(R.id.imgBtnEi);
         PokemonJsonLoader.readJsonFromUrl(this, 1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Pokemon pokemon = PokemonJsonLoader.createPokemonFromJson(response);
-
                 //image View
                 ImageView imageView = (ImageView) findViewById(R.id.imageView);
                 //textView
@@ -61,29 +56,31 @@ public class MainActivity extends AppCompatActivity {
                 TextView weight = (TextView) findViewById(R.id.weight);
                 TextView find = (TextView) findViewById(R.id.find);
 
-<<<<<<< HEAD
-=======
                 Picasso.get().load(pokemon.getFrontImage()).into(imageView);
-
->>>>>>> 2206822aa9005039492616ec6d324b8b29d798f9
-
 
                 name.setText(pokemon.getName());
                 size.setText(Integer.toString(pokemon.getHeight()));
                 weight.setText(Integer.toString(pokemon.getWeight()));
                 find.setText(Integer.toString(pokemon.getBase_experience()));
-<<<<<<< HEAD
+
+                LinearLayout typesLayout = (LinearLayout) findViewById(R.id.layoutTypes);
+
+                for (String typ: pokemon.getTypes()) {
+                    TextView textView = new TextView(getApplicationContext());
+                    textView.setText(typ);
+                    if(typ.equals("poison")){
+                        textView.setBackgroundColor(Color.GREEN);
+                    }
+                    typesLayout.addView(textView);
+                }
+
                 Picasso.get().load(pokemon.getFrontImage()).into(imageView);
 
             }
         });
     }
 
-=======
 
-            }
-        });
-    }
 
 
     //element_UserName.setText(antwort);
@@ -99,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         */
 
 
->>>>>>> 2206822aa9005039492616ec6d324b8b29d798f9
+
 
     public void onClickEi(final View view) {
         counter += 1;
