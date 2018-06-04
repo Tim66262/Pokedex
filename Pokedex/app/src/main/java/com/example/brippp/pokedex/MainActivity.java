@@ -17,6 +17,7 @@ import com.example.brippp.pokedex.model.Pokemon;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     //Element deklaration
    private int counter;
    private ImageButton btnAbbuchen,btnAbbuchen2;
+    Bitmap mIcon_val;
 
 
     @Override
@@ -47,24 +49,17 @@ public class MainActivity extends AppCompatActivity {
                 TextView weight = (TextView) findViewById(R.id.weight);
                 TextView find = (TextView) findViewById(R.id.find);
 
-                imageView.setImage
 
                 name.setText(pokemon.getFrontImage());
                 size.setText(Integer.toString(pokemon.getHeight()));
                 weight.setText(Integer.toString(pokemon.getWeight()));
                 find.setText(Integer.toString(pokemon.getBase_experience()));
 
-
-
             }
         });
 
     }//OnCreate
-
-    URL newurl = new URL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png");
-    mIcon_val = BitmapFactory.decodeStream(newurl.openConnection() .getInputStream());
-    profile_photo.setImageBitmap(mIcon_val);
-
+    
     //element_UserName.setText(antwort);
     //element_PWD.setText(antwort2);
     //Anmelde Daten in Variable speichern
