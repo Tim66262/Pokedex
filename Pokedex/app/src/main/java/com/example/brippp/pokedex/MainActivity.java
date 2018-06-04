@@ -37,17 +37,21 @@ public class MainActivity extends AppCompatActivity {
     //Element deklaration
     private int counter;
     private ImageButton btnAbbuchen, btnAbbuchen2;
+    Pokemon pokemon;
+    boolean pictureFront;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //TODO: activity_main
         setContentView(R.layout.activity_einzelansicht);
+
         this.btnAbbuchen = (ImageButton) findViewById(R.id.imgBtnEi);
+
         PokemonJsonLoader.readJsonFromUrl(this, 1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Pokemon pokemon = PokemonJsonLoader.createPokemonFromJson(response);
+                pokemon = PokemonJsonLoader.createPokemonFromJson(response);
                 //image View
                 ImageView imageView = (ImageView) findViewById(R.id.imageView);
                 //textView
@@ -55,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 TextView size = (TextView) findViewById(R.id.size);
                 TextView weight = (TextView) findViewById(R.id.weight);
                 TextView find = (TextView) findViewById(R.id.find);
-
-                Picasso.get().load(pokemon.getFrontImage()).into(imageView);
 
                 name.setText(pokemon.getName());
                 size.setText(Integer.toString(pokemon.getHeight()));
@@ -80,6 +82,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    public void turnPokemon(View view){
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        if(pictureFront){
+            Picasso.get().load(pokemon.getBackImage()).into(imageView);
+            pictureFront = false;
+        }
+        else{
+            Picasso.get().load(pokemon.getFrontImage()).into(imageView);
+            pictureFront = true;
+        }
+
+    }
 
 
 

@@ -136,8 +136,10 @@
         android:layout_height="148dp"
         android:layout_marginTop="45dp"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:onClick="turnPokemon"
 
+
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
@@ -153,8 +155,6 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/find"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
         ></LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
