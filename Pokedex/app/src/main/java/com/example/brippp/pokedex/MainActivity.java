@@ -1,44 +1,81 @@
 package com.example.brippp.pokedex;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Response;
-import com.example.brippp.pokedex.model.Pokemon;
 import com.example.brippp.pokedex.dao.PokemonJsonLoader;
+import com.example.brippp.pokedex.model.Pokemon;
 
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
     //Element deklaration
    private int counter;
    private ImageButton btnAbbuchen,btnAbbuchen2;
-   private TextView willkommen;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //TODO: activity_main
+        setContentView(R.layout.activity_einzelansicht);
+
+        this.btnAbbuchen = (ImageButton) findViewById(R.id.imgBtnEi);
         PokemonJsonLoader.readJsonFromUrl(this,1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Pokemon pokemon = PokemonJsonLoader.createPokemonFromJson(response);
 
+                //image View
+                ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                //textView
+                TextView name = (TextView) findViewById(R.id.name);
+                TextView size = (TextView) findViewById(R.id.size);
+                TextView weight = (TextView) findViewById(R.id.weight);
+                TextView find = (TextView) findViewById(R.id.find);
 
-                TextView title = (TextView) findViewById(R.id.textView2);
-                title.setText(Integer.toString(pokemon.getId()));
+                imageView.setImage
+
+                name.setText(pokemon.getFrontImage());
+                size.setText(Integer.toString(pokemon.getHeight()));
+                weight.setText(Integer.toString(pokemon.getWeight()));
+                find.setText(Integer.toString(pokemon.getBase_experience()));
+
+
 
             }
         });
-        this.btnAbbuchen = (ImageButton) findViewById(R.id.imgBtnEi);
 
-    }
+    }//OnCreate
+
+    URL newurl = new URL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png");
+    mIcon_val = BitmapFactory.decodeStream(newurl.openConnection() .getInputStream());
+    profile_photo.setImageBitmap(mIcon_val);
+
+    //element_UserName.setText(antwort);
+    //element_PWD.setText(antwort2);
+    //Anmelde Daten in Variable speichern
+        /*
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+        setupTabIcons();
+        */
 
 
     public void onClickEi(final View view) {
