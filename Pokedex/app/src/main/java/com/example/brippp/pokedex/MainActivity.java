@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }//OnCreate
-    
+
     //element_UserName.setText(antwort);
     //element_PWD.setText(antwort2);
     //Anmelde Daten in Variable speichern
