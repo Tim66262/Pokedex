@@ -1,6 +1,9 @@
 package com.example.brippp.pokedex.dao;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,6 +16,9 @@ import com.example.brippp.pokedex.model.Pokemon;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
