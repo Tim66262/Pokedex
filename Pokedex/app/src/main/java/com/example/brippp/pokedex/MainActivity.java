@@ -30,15 +30,8 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     //Element deklaration
-<<<<<<< HEAD
     private int counter;
     private ImageButton btnAbbuchen, btnAbbuchen2;
-=======
-   private int counter;
-   private ImageButton btnAbbuchen,btnAbbuchen2;
-    Bitmap mIcon_val;
->>>>>>> 83f0735af71237344e5ded0dab7cc4de0cc52710
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,46 +46,25 @@ public class MainActivity extends AppCompatActivity {
                 Pokemon pokemon = PokemonJsonLoader.createPokemonFromJson(response);
 
                 //image View
-                final ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                ImageView imageView = (ImageView) findViewById(R.id.imageView);
                 //textView
                 TextView name = (TextView) findViewById(R.id.name);
                 TextView size = (TextView) findViewById(R.id.size);
                 TextView weight = (TextView) findViewById(R.id.weight);
                 TextView find = (TextView) findViewById(R.id.find);
 
-<<<<<<< HEAD
-                Picasso.get().load(pokemon.getFrontImage()).into(imageView);
-=======
->>>>>>> 83f0735af71237344e5ded0dab7cc4de0cc52710
+
 
                 name.setText(pokemon.getName());
                 size.setText(Integer.toString(pokemon.getHeight()));
                 weight.setText(Integer.toString(pokemon.getWeight()));
                 find.setText(Integer.toString(pokemon.getBase_experience()));
-<<<<<<< HEAD
+                Picasso.get().load(pokemon.getFrontImage()).into(imageView);
+
             }
         });
     }
-=======
 
-            }
-        });
-
-    }//OnCreate
-    
-    //element_UserName.setText(antwort);
-    //element_PWD.setText(antwort2);
-    //Anmelde Daten in Variable speichern
-        /*
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
-        */
-
->>>>>>> 83f0735af71237344e5ded0dab7cc4de0cc52710
 
     public void onClickEi(final View view) {
         counter += 1;

@@ -69,7 +69,7 @@ public class PokemonJsonLoader {
             pokemon.setWeight(jsonObject.getInt("weight"));
             pokemon.setHeight(jsonObject.getInt("height"));
             pokemon.setFrontImage(jsonObject.getJSONObject("sprites").getString("front_default"));
-            pokemon.setFrontImage(jsonObject.getJSONObject("sprites").getString("back_default"));
+            pokemon.setBackImage(jsonObject.getJSONObject("sprites").getString("back_default"));
             List<String> types = new ArrayList<>();
             for(int i = 0; i < jsonObject.getJSONArray("types").length(); i++){
                 types.add(jsonObject.getJSONArray("types").getJSONObject(i).getJSONObject("type").getString("name"));

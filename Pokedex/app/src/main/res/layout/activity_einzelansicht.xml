@@ -130,6 +130,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/glurak" />
+        app:srcCompat="@drawable/glurak"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"/>
 
 </android.support.constraint.ConstraintLayout>
