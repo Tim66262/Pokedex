@@ -16,11 +16,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //TODO: activity_main
+        setContentView(R.layout.activity_einzelansicht);
 
         this.btnAbbuchen = (ImageButton) findViewById(R.id.imgBtnEi);
 
     }
+
+    //element_UserName.setText(antwort);
+    //element_PWD.setText(antwort2);
+    //Anmelde Daten in Variable speichern
+        /*
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+        setupTabIcons();
+        */
 
 
     public void onClickEi(final View view) {
