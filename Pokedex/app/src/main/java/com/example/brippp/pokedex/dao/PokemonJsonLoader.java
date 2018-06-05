@@ -45,7 +45,7 @@ public class PokemonJsonLoader {
         }
      *
      */
-    public static void readJsonFromUrl(Context context, int id, Response.Listener<String> listener) {
+    public static void readJsonFromUrl(Context context, String id, Response.Listener<String> listener) {
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, basisUrl + id,  listener, new Response.ErrorListener() {
             @Override public void onErrorResponse(VolleyError error) { }
