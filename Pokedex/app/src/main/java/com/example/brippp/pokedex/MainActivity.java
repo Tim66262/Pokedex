@@ -35,10 +35,6 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     //Element deklaration
-<<<<<<< HEAD
-
-=======
->>>>>>> 434a564482f628eb8ded7a0e2ebb498049bbe1d1
     private int counter;
     private ImageButton btnAbbuchen, btnAbbuchen2;
 
@@ -46,79 +42,48 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //TODO: activity_main
-        setContentView(R.layout.activity_einzelansicht);
+        setContentView(R.layout.activity_main);
         this.btnAbbuchen = (ImageButton) findViewById(R.id.imgBtnEi);
-        PokemonJsonLoader.readJsonFromUrl(this, 1, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Pokemon pokemon = PokemonJsonLoader.createPokemonFromJson(response);
-                //image View
-                ImageView imageView = (ImageView) findViewById(R.id.imageView);
-                //textView
-                TextView name = (TextView) findViewById(R.id.name);
-                TextView size = (TextView) findViewById(R.id.size);
-                TextView weight = (TextView) findViewById(R.id.weight);
-                TextView find = (TextView) findViewById(R.id.find);
-
-<<<<<<< HEAD
-
-                Picasso.get().load(pokemon.getFrontImage()).into(imageView);
-
-
-
-=======
-                Picasso.get().load(pokemon.getFrontImage()).into(imageView);
-
->>>>>>> 434a564482f628eb8ded7a0e2ebb498049bbe1d1
-                name.setText(pokemon.getName());
-                size.setText(Integer.toString(pokemon.getHeight()));
-                weight.setText(Integer.toString(pokemon.getWeight()));
-                find.setText(Integer.toString(pokemon.getBase_experience()));
-<<<<<<< HEAD
-=======
-
-                LinearLayout typesLayout = (LinearLayout) findViewById(R.id.layoutTypes);
-
-                for (String typ: pokemon.getTypes()) {
-                    TextView textView = new TextView(getApplicationContext());
-                    textView.setText(typ);
-                    if(typ.equals("poison")){
-                        textView.setBackgroundColor(Color.GREEN);
-                    }
-                    typesLayout.addView(textView);
-                }
-
->>>>>>> 434a564482f628eb8ded7a0e2ebb498049bbe1d1
-                Picasso.get().load(pokemon.getFrontImage()).into(imageView);
-
-            }
-        });
+//        PokemonJsonLoader.readJsonFromUrl(this, 1, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                Pokemon pokemon = PokemonJsonLoader.createPokemonFromJson(response);
+//                //image View
+//                ImageView imageView = (ImageView) findViewById(R.id.imageView);
+//                //textView
+//                TextView name = (TextView) findViewById(R.id.name);
+//                TextView size = (TextView) findViewById(R.id.size);
+//                TextView weight = (TextView) findViewById(R.id.weight);
+//                TextView find = (TextView) findViewById(R.id.find);
+//
+//
+//                Picasso.get().load(pokemon.getFrontImage()).into(imageView);
+//
+//
+//                Picasso.get().load(pokemon.getFrontImage()).into(imageView);
+//
+//                name.setText(pokemon.getName());
+//                size.setText(Integer.toString(pokemon.getHeight()));
+//                weight.setText(Integer.toString(pokemon.getWeight()));
+//                find.setText(Integer.toString(pokemon.getBase_experience()));
+//
+//                LinearLayout typesLayout = (LinearLayout) findViewById(R.id.layoutTypes);
+//
+//                for (String typ: pokemon.getTypes()) {
+//                    TextView textView = new TextView(getApplicationContext());
+//                    textView.setText(typ);
+//                    if(typ.equals("poison")){
+//                        textView.setBackgroundColor(Color.GREEN);
+//                    }
+//                    typesLayout.addView(textView);
+//                }
+//
+//                Picasso.get().load(pokemon.getFrontImage()).into(imageView);
+//
+//            }
+//        });
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 434a564482f628eb8ded7a0e2ebb498049bbe1d1
-
-
-    //element_UserName.setText(antwort);
-    //element_PWD.setText(antwort2);
-    //Anmelde Daten in Variable speichern
-        /*
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
-        */
-
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 434a564482f628eb8ded7a0e2ebb498049bbe1d1
     public void onClickEi(final View view) {
         counter += 1;
         if (counter >= 5) {

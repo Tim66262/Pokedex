@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgPokemon"
+        android:layout_width="78dp"
+        android:layout_height="77dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/sym_def_app_icon"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/lblName"
+        android:layout_width="226dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/imgPokemon"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <LinearLayout
+        android:id="@+id/layTypes"
+        android:layout_width="225dp"
+        android:layout_height="26dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/imgPokemon"
+        tools:layout_editor_absoluteY="67dp"></LinearLayout>
+</android.support.constraint.ConstraintLayout>
