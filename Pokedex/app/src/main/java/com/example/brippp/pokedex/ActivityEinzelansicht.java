@@ -24,7 +24,15 @@ public class ActivityEinzelansicht extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_einzelansicht);
 
-        PokemonJsonLoader.readJsonFromUrl(this, 219, new Response.Listener<String>() {
+        String id;
+        if(getIntent().hasExtra("name")){
+            id = getIntent().getStringExtra("name");
+        }
+        else{
+            id = "altaria";
+        }
+
+        PokemonJsonLoader.readJsonFromUrl(this, id, new Response.Listener<String>() {
             @Override
 
             public void onResponse(String response) {
@@ -156,7 +164,6 @@ public class ActivityEinzelansicht extends AppCompatActivity{
             }
         });
     }//OnCreate
-
 
     public void turnPokemon(View view){
         ImageView imageView = findViewById(R.id.imageView);

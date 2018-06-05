@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -45,6 +46,16 @@ public class ActivityListe extends AppCompatActivity{
         loadData();
         pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
         listView.setAdapter(pokemonAdapter);
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(ActivityListe.this, ActivityEinzelansicht.class);
+                        intent.putExtra("name", nameList.get(position));
+                        startActivity(intent);
+                    }
+                }
+        );
     }
 
     public void loadData(){
@@ -54,8 +65,6 @@ public class ActivityListe extends AppCompatActivity{
                public void onResponse(String response) {
                    nameList.addAll(AllPokemonJsonLoader.getAllPokemons(response));
                    pokemonAdapter.notifyDataSetChanged();
-                   Log.v("listviewcount", Integer.toString(listView.getCount()));
-                   Log.v("", "");
             }
         });
     }
@@ -64,6 +73,7 @@ public class ActivityListe extends AppCompatActivity{
     public void onClickopenListe(View view) {
         Toast.makeText(this,"You are already looking at the List",Toast.LENGTH_LONG).show();
     }
+
     //Onlick Favs
     public void onClickopenFavoriten(View view) {
         Intent i = new Intent(this, ActivityFavoriten.class);
