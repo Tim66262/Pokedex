@@ -64,7 +64,7 @@ public class ActivityEinzelansicht extends AppCompatActivity{
                     llp.setMargins(20, 0, 0, 0); // llp.setMargins(left, top, right, bottom);
                     textView.setLayoutParams(llp);
                     //Typ Uppercase
-                    String upperTyp = typ.substring(0,1).toUpperCase() + pokemonName.substring(1);
+                    String upperTyp = typ.substring(0,1).toUpperCase() + typ.substring(1);
                     textView.setText(upperTyp);
                     textView.setTextSize(18);
                     //textView.getPaint().setColor(Color.BLACK);
