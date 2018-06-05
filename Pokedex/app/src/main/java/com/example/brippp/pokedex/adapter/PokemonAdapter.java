@@ -48,19 +48,16 @@ public class PokemonAdapter extends BaseAdapter{
         ImageView img = convertView.findViewById(R.id.imgPokemon);
         TextView tv = convertView.findViewById(R.id.lblName);
 
-       try {
-           String imageName = nameList.get(position).replace('-', '_');
-           img.setImageResource(context.getResources().getIdentifier(imageName, "drawable", context.getPackageName()));
-        }
-        catch (Exception e) {
-           img.setImageResource(R.drawable.unknown);
-        }
+        String imageName = nameList.get(position).replace('-', '_');
+        img.setImageResource(context.getResources().getIdentifier(imageName, "drawable", context.getPackageName()));
 
         String name = nameList.get(position);
         String upperTyp = name.substring(0,1).toUpperCase() + name.substring(1);
-
         tv.setText(upperTyp);
-
+        if (img.getDrawable() == null) {
+            img.setImageResource(R.drawable.unknown);
+            tv.setText("No Pokemon Found");
+        }
         return convertView;
     }
 }
