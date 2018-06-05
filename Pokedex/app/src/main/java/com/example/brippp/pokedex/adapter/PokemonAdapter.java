@@ -44,8 +44,8 @@ public class PokemonAdapter extends BaseAdapter{
             convertView = View.inflate(context, R.layout.items_list, null);
         }
 
-        ImageView img = (ImageView) convertView.findViewById(R.id.imgPokemon);
-        TextView tv = (TextView) convertView.findViewById(R.id.lblName);
+        ImageView img = convertView.findViewById(R.id.imgPokemon);
+        TextView tv = convertView.findViewById(R.id.lblName);
 
        try {
            String imageName = nameList.get(position).replace('-', '_');

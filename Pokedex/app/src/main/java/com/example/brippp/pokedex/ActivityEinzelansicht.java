@@ -30,13 +30,13 @@ public class ActivityEinzelansicht extends AppCompatActivity{
             public void onResponse(String response) {
                 pokemon = PokemonJsonLoader.createPokemonFromJson(response);
                 //image View
-                ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                ImageView imageView = findViewById(R.id.imageView);
                 //textView
-                TextView name = (TextView) findViewById(R.id.name);
-                TextView size = (TextView) findViewById(R.id.size);
-                TextView weight = (TextView) findViewById(R.id.weight);
-                TextView find = (TextView) findViewById(R.id.find);
-                TextView id = (TextView) findViewById(R.id.ID);
+                TextView name = findViewById(R.id.name);
+                TextView size = findViewById(R.id.size);
+                TextView weight = findViewById(R.id.weight);
+                TextView find = findViewById(R.id.find);
+                TextView id = findViewById(R.id.ID);
 
                 //upper Case Pokename
                 String pokemonName = pokemon.getName();
@@ -48,7 +48,7 @@ public class ActivityEinzelansicht extends AppCompatActivity{
                 find.setText(Integer.toString(pokemon.getBase_experience()));
                 id.setText(Integer.toString(pokemon.getId()));
 
-                LinearLayout typesLayout = (LinearLayout) findViewById(R.id.layoutTypes);
+                LinearLayout typesLayout = findViewById(R.id.layoutTypes);
 
                 for (String typ: pokemon.getTypes()) {
                     TextView textView = new TextView(getApplicationContext());
@@ -159,7 +159,7 @@ public class ActivityEinzelansicht extends AppCompatActivity{
 
 
     public void turnPokemon(View view){
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        ImageView imageView = findViewById(R.id.imageView);
         if(pictureFront){
             Picasso.get().load(pokemon.getBackImage()).into(imageView);
             pictureFront = false;

@@ -17,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:onClick="onClickStart"
         android:text="Start"
-        android:textColor="#a67d7d"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgBtnEi" />
@@ -31,7 +31,7 @@
         android:gravity="center"
         android:text="Welcome to the Pokedex Application"
         android:textAllCaps="false"
-        android:textColor="#a67d7d"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/imgBtnEi"
         app:layout_constraintEnd_toEndOf="parent"
