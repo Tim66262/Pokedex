@@ -2,10 +2,23 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorDark">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="88dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:text="Poke ID"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <TextView
         android:id="@+id/textView5"
@@ -26,12 +39,12 @@
         android:layout_height="38dp"
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textAllCaps="false"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/weight"
-        android:textColor="@android:color/background_light"/>
+        app:layout_constraintTop_toBottomOf="@+id/weight" />
 
     <TextView
         android:id="@+id/weight"
@@ -51,11 +64,11 @@
         android:layout_height="38dp"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        android:textColor="@android:color/background_light"/>
+        app:layout_constraintTop_toBottomOf="@+id/ID" />
 
     <TextView
         android:id="@+id/textView4"
@@ -89,12 +102,12 @@
         android:layout_height="38dp"
         android:layout_marginLeft="35dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Size"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        android:textColor="@android:color/background_light"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -124,22 +137,21 @@
 
     <TextView
         android:id="@+id/ID"
-        android:layout_width="wrap_content"
-        android:layout_height="58dp"
-        android:layout_marginTop="5dp"
-        android:text="ID"
+        android:layout_width="175dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
         android:textAllCaps="false"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="182dp"
         android:layout_height="148dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="40dp"
 
         android:adjustViewBounds="true"
         android:cropToPadding="true"

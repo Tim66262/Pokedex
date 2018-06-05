@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         if (counter >= 10) {
             btnAbbuchen.setImageResource(R.drawable.egg2);
         }
+        if (counter >= 14) {
+            btnAbbuchen.setImageResource(R.drawable.egg3);
+        }
         if (counter >= 15) {
             btnAbbuchen.setImageResource(R.drawable.glurak);
         }
