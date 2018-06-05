@@ -2,7 +2,6 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorDark">
@@ -159,15 +158,9 @@
         android:layout_marginTop="18dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-<<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/find"
         android:layout_marginRight="30dp"
         android:showDividers="middle"
         ></LinearLayout>
-=======
-        app:layout_constraintTop_toBottomOf="@+id/find"></LinearLayout>
-
-
->>>>>>> 5f9ebac82c323d693e24e3e8b7935188c0779c49
 
 </android.support.constraint.ConstraintLayout>

@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
     //Element deklaration
     private int counter;
     private ImageButton btnAbbuchen, btnAbbuchen2;
-    Pokemon pokemon;
-    boolean pictureFront = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         this.btnAbbuchen = (ImageButton) findViewById(R.id.imgBtnEi);
+<<<<<<< HEAD
 
     }
 
@@ -225,6 +224,10 @@ public class MainActivity extends AppCompatActivity {
         
 
 
+=======
+    }
+
+>>>>>>> 24bfdcdc2beabb993f157d1f510d134d41a4520c
     public void onClickEi(final View view) {
         counter += 1;
         if (counter >= 5) {
