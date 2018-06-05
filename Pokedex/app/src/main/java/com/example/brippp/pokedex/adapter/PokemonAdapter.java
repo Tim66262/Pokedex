@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.brippp.pokedex.R;
+import com.example.brippp.pokedex.db.DBHelper;
 
 import java.util.ArrayList;
 
@@ -47,17 +48,34 @@ public class PokemonAdapter extends BaseAdapter{
 
         ImageView img = convertView.findViewById(R.id.imgPokemon);
         TextView tv = convertView.findViewById(R.id.lblName);
+        final ImageView rating = convertView.findViewById(R.id.imgRating);
 
         String imageName = nameList.get(position).replace('-', '_');
         img.setImageResource(context.getResources().getIdentifier(imageName, "drawable", context.getPackageName()));
 
-        String name = nameList.get(position);
+        final String name = nameList.get(position);
         String upperTyp = name.substring(0,1).toUpperCase() + name.substring(1);
         tv.setText(upperTyp);
+
+        if(new DBHelper(context).isFavorite(name)) {
+            rating.setImageResource(android.R.drawable.btn_star_big_on);
+        }
+        else{
+            rating.setImageResource(android.R.drawable.btn_star_big_off);
+        }
+
         if (img.getDrawable() == null) {
             img.setImageResource(R.drawable.unknown);
-            tv.setText("No Pokemon Found");
         }
+
+        rating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DBHelper(context).insertFavorite(name);
+                rating.setImageResource(android.R.drawable.btn_star_big_on);
+            }
+        });
+
         return convertView;
     }
 }

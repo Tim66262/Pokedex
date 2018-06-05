@@ -22,9 +22,10 @@ public class AllPokemonJsonLoader {
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, basisUrl,  listener, new Response.ErrorListener() {
             @Override public void onErrorResponse(VolleyError error) {
-                Log.v("response", "error");
+                Log.e("response", "error");
             }
         });
+        Log.v("request", "started");
         queue.add(stringRequest);
     }
 
