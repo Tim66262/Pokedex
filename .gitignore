@@ -15,3 +15,6 @@ Pokedex/.idea/caches/build_file_checksums.ser
 Pokedex/app/build.gradle
 Pokedex/app/src/main/java/com/example/brippp/pokedex/MainActivity.java
 Pokedex/app/src/main/res/layout/activity_einzelansicht.xml
+Pokedex/app/src/main/java/com/example/brippp/pokedex/MainActivity.java
+*.java
+Pokedex/app/src/main/java/com/example/brippp/pokedex/MainActivity.java
