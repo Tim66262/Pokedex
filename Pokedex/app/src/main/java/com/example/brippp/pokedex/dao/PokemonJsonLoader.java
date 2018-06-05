@@ -65,7 +65,7 @@ public class PokemonJsonLoader {
             pokemon.setId(jsonObject.getInt("id"));
             pokemon.setName(jsonObject.getString("name"));
             pokemon.setBase_experience(jsonObject.getInt("base_experience"));
-            pokemon.setHeight(jsonObject.getInt("height"));
+            //pokemon.setHeight(jsonObject.getInt("height"));
             pokemon.setWeight(jsonObject.getInt("weight"));
             pokemon.setHeight(jsonObject.getInt("height"));
             pokemon.setFrontImage(jsonObject.getJSONObject("sprites").getString("front_default"));
@@ -76,7 +76,7 @@ public class PokemonJsonLoader {
             }
             pokemon.setTypes(types);
         } catch (JSONException e) {
-            pokemon.setName("Standart");
+            pokemon.setName("Not found");
             e.printStackTrace();
         }
         return pokemon;
