@@ -55,7 +55,11 @@ public class PokemonAdapter extends BaseAdapter{
         catch (Exception e) {
            img.setImageResource(R.drawable.unknown);
         }
-        tv.setText(nameList.get(position));
+
+        String name = nameList.get(position);
+        String upperTyp = name.substring(0,1).toUpperCase() + name.substring(1);
+
+        tv.setText(upperTyp);
 
         return convertView;
     }
