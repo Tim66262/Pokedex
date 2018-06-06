@@ -54,6 +54,19 @@ public class PokemonJsonLoader {
     }
 
     /**
+     * Read a JSON
+     * @param context context
+     * @param id pokid
+     * @param listener ResponseListener
+     * @param errorListner ErrorListener
+     */
+    public static void readJsonFromUrlWithError(Context context, String id, Response.Listener<String> listener, Response.ErrorListener errorListner) {
+        RequestQueue queue = Volley.newRequestQueue(context);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, basisUrl + id,  listener, errorListner);
+        queue.add(stringRequest);
+    }
+
+    /**
      * Create a Pokemon Object
      * @param jsonString JSON Object in a String
      * @return Pokemon Object
@@ -85,7 +98,7 @@ public class PokemonJsonLoader {
     /**
      * Get the detail of a Pokemon
      * @param jsonString Json String of a Pokemon
-     * @return the value of Detail
+     * @return Name of the pokemon
      */
     public static String getDetail(String jsonString){
         try{

@@ -36,26 +36,21 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Element deklaration
     private int counter;
-    private ImageButton btnAbbuchen, btnAbbuchen2;
+    private ImageButton btnAbbuchen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //TODO: activity_main
-
         setContentView(R.layout.activity_main);
         this.btnAbbuchen = findViewById(R.id.imgBtnEi);
     }
 
-
-    public void backtoListe (View view){
-        Intent i = new Intent(this, ActivityListe.class);
-        startActivity(i);
-    }
-
-    public void onClickEi(final View view) {
+    /**
+     * Change the Image of the egg
+     * @param view View
+     */
+    public void onClickEi(View view) {
         counter += 1;
         if (counter >= 5) {
             btnAbbuchen.setImageResource(R.drawable.egg1);
@@ -63,15 +58,18 @@ public class MainActivity extends AppCompatActivity {
         if (counter >= 10) {
             btnAbbuchen.setImageResource(R.drawable.egg2);
         }
-        if (counter >= 14) {
+        if (counter >= 15) {
             btnAbbuchen.setImageResource(R.drawable.egg3);
         }
-        if (counter >= 15) {
+        if (counter >= 20) {
             btnAbbuchen.setImageResource(R.drawable.glurak);
         }
     }
 
-    //Onlick Button
+    /**
+     * Change the activity by an click on the start Button
+     * @param view View
+     */
     public void onClickStart(View view) {
         Intent i = new Intent(MainActivity.this, ActivityListe.class);
         startActivity(i);

@@ -4,16 +4,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.android.volley.Response;
 import com.example.brippp.pokedex.dao.PokemonJsonLoader;
+import com.example.brippp.pokedex.db.DBHelper;
 import com.example.brippp.pokedex.model.Pokemon;
 import com.squareup.picasso.Picasso;
 
@@ -27,6 +26,7 @@ public class ActivityEinzelansicht extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_einzelansicht);
 
+        //Get the Id of the the Selected Pokemon
         String id;
         if(getIntent().hasExtra("name")){
             id = getIntent().getStringExtra("name");
@@ -35,32 +35,58 @@ public class ActivityEinzelansicht extends AppCompatActivity{
             id = "altaria";
         }
 
+        //Load the Pokemondata by Json
         PokemonJsonLoader.readJsonFromUrl(this, id, new Response.Listener<String>() {
             @Override
 
             public void onResponse(String response) {
                 pokemon = PokemonJsonLoader.createPokemonFromJson(response);
                 //image View
-                ImageView imageView = findViewById(R.id.imageView);
+                final ImageView imageView = findViewById(R.id.imageView);
+                final ImageView favorite = findViewById(R.id.imgRating);
                 //textView
-                TextView name = findViewById(R.id.name);
-                TextView size = findViewById(R.id.size);
-                TextView weight = findViewById(R.id.weight);
-                TextView find = findViewById(R.id.find);
-                TextView id = findViewById(R.id.ID);
+                final TextView name = findViewById(R.id.name);
+                final TextView size = findViewById(R.id.size);
+                final TextView weight = findViewById(R.id.weight);
+                final TextView find = findViewById(R.id.find);
+                final TextView id = findViewById(R.id.ID);
+                final LinearLayout typesLayout = findViewById(R.id.layoutTypes);
 
                 //upper Case Pokename
-                String pokemonName = pokemon.getName();
+                final String pokemonName = pokemon.getName();
                 String upperString = pokemonName.substring(0,1).toUpperCase() + pokemonName.substring(1);
                 name.setText(upperString);
 
+                //Fill the Data in the TextViews
                 size.setText(Integer.toString(pokemon.getHeight()));
                 weight.setText(Integer.toString(pokemon.getWeight()));
                 find.setText(Integer.toString(pokemon.getBase_experience()));
                 id.setText(Integer.toString(pokemon.getId()));
 
-                LinearLayout typesLayout = findViewById(R.id.layoutTypes);
+                //Set Favorite
+                if(new DBHelper(getApplicationContext()).isFavorite(pokemonName)) {
+                    favorite.setImageResource(android.R.drawable.btn_star_big_on);
+                }
+                else{
+                    favorite.setImageResource(android.R.drawable.btn_star_big_off);
+                }
 
+                //Set a Listener
+                favorite.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(new DBHelper(getApplicationContext()).isFavorite(pokemonName)){
+                            new DBHelper(getApplicationContext()).deleteFavorite(pokemonName);
+                            favorite.setImageResource(android.R.drawable.btn_star_big_off);
+                        }
+                        else {
+                            new DBHelper(getApplicationContext()).insertFavorite(pokemonName);
+                            favorite.setImageResource(android.R.drawable.btn_star_big_on);
+                        }
+                    }
+                });
+
+                //Set the Pokemonstypes and fill this in the linear layout
                 for (String typ: pokemon.getTypes()) {
                     TextView textView = new TextView(getApplicationContext());
                     LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

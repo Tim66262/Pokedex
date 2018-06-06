@@ -25,18 +25,17 @@ public class AllPokemonJsonLoader {
      * @param id Id of Pokemon
      * @param listener A Response Listener Example:
      *
-     *  new Response.Listener<String>() {
-     @Override
-     public void onResponse(String response) {
-     Pokemon pokemon = PokemonJsonLoader.createPokemonFromJson(response);
+     *   new Response.Listener<String>() {
+         @Override
+         public void onResponse(String response) {
+         Pokemon pokemon = PokemonJsonLoader.createPokemonFromJson(response);
 
 
-     TextView title = (TextView) findViewById(R.id.textView2);
-     title.setText(Integer.toString(pokemon.getId()));
+         TextView title = (TextView) findViewById(R.id.textView2);
+         title.setText(Integer.toString(pokemon.getId()));
 
-     }
-     }
-     *
+         }
+         }
      */
     public static void readJsonFromUrl(Context context, Response.Listener<String> listener) {
         RequestQueue queue = Volley.newRequestQueue(context);
