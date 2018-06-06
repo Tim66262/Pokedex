@@ -1,6 +1,7 @@
 package com.example.brippp.pokedex;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -35,12 +36,14 @@ import java.util.List;
 
 public class ActivityListe extends AppCompatActivity{
 
+    Context context= this;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ListView listView;
     private SearchView searchView;
     ArrayList<String> nameList;
     PokemonAdapter pokemonAdapter;
+    String pokeonDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +82,26 @@ public class ActivityListe extends AppCompatActivity{
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                    nameList = new ArrayList<>();
-                    nameList.add(query.toLowerCase());
-                    pokemonAdapter =  new PokemonAdapter(ActivityListe.this, nameList);
-                    listView.setAdapter(pokemonAdapter);
+                final String userInput = query;
+
+                PokemonJsonLoader.readJsonFromUrl(context, query.toLowerCase(),new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        pokeonDetail = PokemonJsonLoader.getDetail(response);
+
+                        if(!pokeonDetail.equals("Not found.")){
+                            nameList = new ArrayList<>();
+                            nameList.add(userInput.toLowerCase());
+                            pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
+                            listView.setAdapter(pokemonAdapter);
+                        }else {
+
+                        }
+                    }
+                });
+
                 return true;
+
             }
 
             @Override

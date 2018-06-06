@@ -16,18 +16,44 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class AllPokemonJsonLoader {
+
     private static final String basisUrl = "https://pokeapi.co/api/v2/pokemon/?limit=1000";
 
+    /**
+     * Reads a Json File and Convert it to a Java String
+     * @param context this in Activity
+     * @param id Id of Pokemon
+     * @param listener A Response Listener Example:
+     *
+     *  new Response.Listener<String>() {
+     @Override
+     public void onResponse(String response) {
+     Pokemon pokemon = PokemonJsonLoader.createPokemonFromJson(response);
+
+
+     TextView title = (TextView) findViewById(R.id.textView2);
+     title.setText(Integer.toString(pokemon.getId()));
+
+     }
+     }
+     *
+     */
     public static void readJsonFromUrl(Context context, Response.Listener<String> listener) {
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, basisUrl,  listener, new Response.ErrorListener() {
             @Override public void onErrorResponse(VolleyError error) {
-                Log.v("response", "error");
+                Log.e("response", "error");
             }
         });
+        Log.v("request", "started");
         queue.add(stringRequest);
     }
 
+    /**
+     * Convert JSON String to a List of Pokemons
+     * @param jsonString Pokemon String Object
+     * @return ArrayList with Pokemons
+     */
     public static ArrayList<String> getAllPokemons(String jsonString){
         ArrayList<String> nameList = new ArrayList<>();
         try {

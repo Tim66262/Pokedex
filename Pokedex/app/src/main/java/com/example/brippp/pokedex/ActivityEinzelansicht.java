@@ -194,6 +194,10 @@ public class ActivityEinzelansicht extends AppCompatActivity{
         });
     }//OnCreate
 
+    /**
+     * Switch the Pokemon Image
+     * @param view
+     */
     public void turnPokemon(View view){
         ImageView imageView = findViewById(R.id.imageView);
         if(pictureFront){
@@ -207,6 +211,10 @@ public class ActivityEinzelansicht extends AppCompatActivity{
 
     }
 
+    /**
+     * Button to go back to the list of all Poemons
+     * @param view
+     */
     public void backtoListe (View view){
         Intent i = new Intent(this, ActivityListe.class);
         startActivity(i);
