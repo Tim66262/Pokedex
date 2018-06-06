@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <!-- view background color -->
-    <solid
+    <!--<solid
         android:color="#dfdfdf" >
-    </solid>
+    </solid>-->
 
     <!-- If you want to add some padding -->
     <padding

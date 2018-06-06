@@ -165,7 +165,6 @@
         android:id="@+id/layoutTypes"
         android:layout_width="174dp"
         android:layout_height="44dp"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:showDividers="middle"
