@@ -23,7 +23,9 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 -->
-    <SearchView
+
+
+    <android.support.v7.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="364dp"
         android:layout_height="41dp"
@@ -31,12 +33,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        style="@style/SearchViewStyle"
+        android:background="@color/colorDarkSearch"
+        android:goIcon="@color/colorDarkSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
-
 
     <Button
         android:id="@+id/button2"
@@ -45,9 +46,9 @@
         android:background="@android:color/holo_red_dark"
         android:onClick="onClickopenListe"
         android:text="Liste"
-        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#FFFFFF"/>
 
     <Button
         android:id="@+id/button3"

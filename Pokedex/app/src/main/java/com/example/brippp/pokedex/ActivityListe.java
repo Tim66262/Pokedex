@@ -8,8 +8,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +19,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +48,10 @@ public class ActivityListe extends AppCompatActivity{
         setContentView(R.layout.activity_liste);
         listView = findViewById(R.id.listView);
         searchView = findViewById(R.id.searchView);
+
+        //ImageView searchIcon = searchView.findViewById(android.support.v7.appcompat.R.id.search_button);
+        //searchIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_search_white_24dp));
+
         loadData();
         pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
         listView.setAdapter(pokemonAdapter);
@@ -86,6 +91,7 @@ public class ActivityListe extends AppCompatActivity{
                 return false;
             }
         });
+
     }
 
     public void loadData(){

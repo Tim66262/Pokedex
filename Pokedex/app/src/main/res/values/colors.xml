@@ -10,7 +10,7 @@
     <color name="ghost">#6666BB</color>
     <color name="steel">#acabbd</color>
     <color name="fire">#ff421c</color>
-    <color name="water">#2f9aff</color>
+    <color name="water">#2494ff</color>
     <color name="electrik">#ffcd30</color>
     <color name="psychic">#ff549b</color>
     <color name="ice">#78defe</color>
@@ -21,4 +21,5 @@
     <color name="shadow">#6666bc</color>
     <color name="bug">#abbd1d</color>
     <color name="colorDark">#484848</color>
+    <color name="colorDarkSearch">#595959</color>
 </resources>

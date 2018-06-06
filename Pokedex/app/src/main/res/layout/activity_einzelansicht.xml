@@ -165,14 +165,11 @@
         android:id="@+id/layoutTypes"
         android:layout_width="174dp"
         android:layout_height="44dp"
-        android:layout_marginLeft="12dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/find"
-        android:layout_marginRight="30dp"
         android:showDividers="middle"
-        ></LinearLayout>
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/find"></LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
