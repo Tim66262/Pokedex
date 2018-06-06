@@ -77,7 +77,7 @@ public class ActivityEinzelansicht extends AppCompatActivity{
                     //textView.getPaint().setColor(Color.BLACK);
                     // Set the border width
 
-                    textView.getPaint().setStrokeWidth(10f);
+                    //textView.getPaint().setStrokeWidth(10f);
 
                     switch (typ) {
                         case "poison":
