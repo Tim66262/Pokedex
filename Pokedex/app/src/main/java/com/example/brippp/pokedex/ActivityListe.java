@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -75,6 +76,8 @@ public class ActivityListe extends AppCompatActivity{
                 loadData();
                 pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
                 listView.setAdapter(pokemonAdapter);
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                 return true;
             }
         });
@@ -94,8 +97,11 @@ public class ActivityListe extends AppCompatActivity{
                             nameList.add(userInput.toLowerCase());
                             pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
                             listView.setAdapter(pokemonAdapter);
+                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                         }else {
-
+                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                         }
                     }
                 });
