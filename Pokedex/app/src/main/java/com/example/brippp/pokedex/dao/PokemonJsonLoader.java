@@ -81,4 +81,25 @@ public class PokemonJsonLoader {
         }
         return pokemon;
     }
+
+    /**
+     * Get the detail of a Pokemon
+     * @param jsonString Json String of a Pokemon
+     * @return the value of Detail
+     */
+    public static String getDetail(String jsonString){
+        try{
+            JSONObject jsonObject = new JSONObject(jsonString);
+            String detail = jsonObject.getString("detail");
+            if(detail == null){
+                return "";
+            }
+            else{
+                return detail;
+            }
+        }catch (JSONException e){
+            e.printStackTrace();
+            return "";
+        }
+    }
 }

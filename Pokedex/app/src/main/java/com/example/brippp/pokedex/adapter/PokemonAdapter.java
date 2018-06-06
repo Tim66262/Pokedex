@@ -41,6 +41,9 @@ public class PokemonAdapter extends BaseAdapter{
     }
 
     @Override
+    /**
+     * Add one Pokemon to a Lis.
+     */
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
             convertView = View.inflate(context, R.layout.items_list, null);
@@ -57,6 +60,10 @@ public class PokemonAdapter extends BaseAdapter{
         String upperTyp = name.substring(0,1).toUpperCase() + name.substring(1);
         tv.setText(upperTyp);
 
+        if(img.getDrawable() == null){
+            img.setImageResource(R.drawable.unknown);
+        }
+
         if(new DBHelper(context).isFavorite(name)) {
             rating.setImageResource(android.R.drawable.btn_star_big_on);
         }
@@ -64,15 +71,18 @@ public class PokemonAdapter extends BaseAdapter{
             rating.setImageResource(android.R.drawable.btn_star_big_off);
         }
 
-        if (img.getDrawable() == null) {
-            img.setImageResource(R.drawable.unknown);
-        }
 
         rating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DBHelper(context).insertFavorite(name);
-                rating.setImageResource(android.R.drawable.btn_star_big_on);
+                if(new DBHelper(context).isFavorite(name)){
+                    new DBHelper(context).deleteFavorite(name);
+                    rating.setImageResource(android.R.drawable.btn_star_big_off);
+                }
+                else {
+                    new DBHelper(context).insertFavorite(name);
+                    rating.setImageResource(android.R.drawable.btn_star_big_on);
+                }
             }
         });
 
