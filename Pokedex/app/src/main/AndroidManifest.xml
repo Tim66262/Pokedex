@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/pokedexicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/pokedexicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -19,13 +19,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityListe"
-            android:label="Liste"
+            android:label="List"
             android:screenOrientation="portrait" />
         <activity android:name=".ActivityEinzelansicht"
-            android:label="Einzelansicht"
+            android:label="Info's"
             android:screenOrientation="portrait" />
         <activity android:name=".ActivityFavoriten"
-            android:label="Favoriten"
+            android:label="Favorites"
             android:screenOrientation="portrait" />
     </application>
 

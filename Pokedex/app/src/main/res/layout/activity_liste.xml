@@ -40,10 +40,10 @@
         android:layout_height="wrap_content"
         android:background="@android:color/holo_red_dark"
         android:onClick="onClickopenListe"
-        android:text="Liste"
+        android:text="List"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#FFFFFF"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button3"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:background="#F44336"
         android:onClick="onClickopenFavoriten"
-        android:text="Favoriten"
+        android:text="Favorites"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
