@@ -17,8 +17,4 @@
         <item name="searchHintIcon">@color/water</item>
         <!-- The hint text that appears when the user has not typed anything -->
     </style>
-<<<<<<< HEAD
-=======
-
->>>>>>> bb42d0943c4df26069f6666808b13164d13164e8
 </resources>

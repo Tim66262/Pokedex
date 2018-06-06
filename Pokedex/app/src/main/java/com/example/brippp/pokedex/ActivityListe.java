@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.example.brippp.pokedex.adapter.PokemonAdapter;
 import com.example.brippp.pokedex.dao.AllPokemonJsonLoader;
 import com.example.brippp.pokedex.dao.PokemonJsonLoader;
@@ -37,28 +38,33 @@ import java.util.List;
 
 public class ActivityListe extends AppCompatActivity{
 
-    Context context= this;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    final private Context context = this;
+
     private ListView listView;
     private SearchView searchView;
-    ArrayList<String> nameList;
-    PokemonAdapter pokemonAdapter;
-    String pokeonDetail;
+
+    private PokemonAdapter pokemonAdapter;
+
+    private ArrayList<String> nameList;
+    private boolean loadSuccess = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste);
+
+        //Set the Elements to the Variables
         listView = findViewById(R.id.listView);
         searchView = findViewById(R.id.searchView);
 
-        //ImageView searchIcon = searchView.findViewById(android.support.v7.appcompat.R.id.search_button);
-        //searchIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_search_white_24dp));
-
+        //Load the Pokemons in the nameList Variable
         loadData();
+
+        //Generate a new adapter and fill all Pokemons in the
         pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
         listView.setAdapter(pokemonAdapter);
+
+        //Set a Listener on each Pokemon. By an click on a Element the ActivityEinzelansicht will open
         listView.setOnItemClickListener(
             new AdapterView.OnItemClickListener() {
                 @Override
@@ -70,44 +76,46 @@ public class ActivityListe extends AppCompatActivity{
             }
         );
 
-        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                loadData();
-                pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
-                listView.setAdapter(pokemonAdapter);
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-                return true;
-            }
-        });
-
+        //Search function
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 final String userInput = query;
-
-                PokemonJsonLoader.readJsonFromUrl(context, query.toLowerCase(),new Response.Listener<String>() {
+                //Set the load success to false.
+                loadSuccess = false;
+                //Load the pokemon by the name in the searchbox
+                PokemonJsonLoader.readJsonFromUrlWithError(context, query.toLowerCase(), new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        pokeonDetail = PokemonJsonLoader.getDetail(response);
-
-                        if(!pokeonDetail.equals("Not found.")){
+                        //Get the detail out of the JSON and Check if Pokemon Detail is not found
+                        String pokeonDetail = PokemonJsonLoader.getDetail(response);
+                        loadSuccess = true;
+                        if (!pokeonDetail.equals("Not found.")) {
+                            //Load the Pokemon
                             nameList = new ArrayList<>();
                             nameList.add(userInput.toLowerCase());
                             pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
                             listView.setAdapter(pokemonAdapter);
-                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-                        }else {
-                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                         }
                     }
+
+
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Print an Error Message
+                        searchView.setQuery("", false);
+                        Toast.makeText(context,"No Pokemon Found",Toast.LENGTH_LONG).show();
+                        loadData();
+                        //Load the list with the Pokemon Adapter
+                        pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
+                        listView.setAdapter(pokemonAdapter);
+                    }
                 });
-
+                //Close the Keyboard
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                 return true;
-
             }
 
             @Override
@@ -116,8 +124,27 @@ public class ActivityListe extends AppCompatActivity{
             }
         });
 
+        //Load all Pokemons by clicken on the x in the close Searchbar
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                //Load all Pokemons
+                loadData();
+                //Load the list with the Pokemon Adapter
+                pokemonAdapter = new PokemonAdapter(ActivityListe.this, nameList);
+                listView.setAdapter(pokemonAdapter);
+                //Close the Keyboard
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                return true;
+            }
+        });
+
     }
 
+    /**
+     * Fill the nameList with all Pokemons
+     */
     public void loadData(){
         nameList = new ArrayList<>();
         AllPokemonJsonLoader.readJsonFromUrl(this, new Response.Listener<String>() {
@@ -129,12 +156,18 @@ public class ActivityListe extends AppCompatActivity{
         });
     }
 
-    //Onlick Liste
+    /**
+     * Click on liste
+     * @param view View
+     */
     public void onClickopenListe(View view) {
         Toast.makeText(this,"You are already looking at the List",Toast.LENGTH_LONG).show();
     }
 
-    //Onlick Favs
+    /**
+     * Switch on the favorite View
+     * @param view View
+     */
     public void onClickopenFavoriten(View view) {
         Intent i = new Intent(this, ActivityFavoriten.class);
         startActivity(i);

@@ -3,7 +3,6 @@ package com.example.brippp.pokedex.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,7 +11,6 @@ import com.example.brippp.pokedex.R;
 import com.example.brippp.pokedex.db.DBHelper;
 
 import java.util.ArrayList;
-
 
 public class PokemonAdapter extends BaseAdapter{
 
@@ -42,28 +40,34 @@ public class PokemonAdapter extends BaseAdapter{
 
     @Override
     /**
-     * Add one Pokemon to a Lis.
+     * Add one Pokemon to a List.
      */
     public View getView(int position, View convertView, ViewGroup parent) {
+
+        //Set a View i no View is in the Param
         if(convertView == null){
             convertView = View.inflate(context, R.layout.items_list, null);
         }
 
-        ImageView img = convertView.findViewById(R.id.imgPokemon);
-        TextView tv = convertView.findViewById(R.id.lblName);
+        //Items in the View
+        final ImageView img = convertView.findViewById(R.id.imgPokemon);
+        final TextView tv = convertView.findViewById(R.id.lblName);
         final ImageView rating = convertView.findViewById(R.id.imgRating);
-
-        String imageName = nameList.get(position).replace('-', '_');
-        img.setImageResource(context.getResources().getIdentifier(imageName, "drawable", context.getPackageName()));
-
         final String name = nameList.get(position);
+
+        //Set Name
         String upperTyp = name.substring(0,1).toUpperCase() + name.substring(1);
         tv.setText(upperTyp);
+
+        //Set Image
+        String imageName = nameList.get(position).replace('-', '_');
+        img.setImageResource(context.getResources().getIdentifier(imageName, "drawable", context.getPackageName()));
 
         if(img.getDrawable() == null){
             img.setImageResource(R.drawable.unknown);
         }
 
+        //Set Favorite
         if(new DBHelper(context).isFavorite(name)) {
             rating.setImageResource(android.R.drawable.btn_star_big_on);
         }
@@ -71,7 +75,7 @@ public class PokemonAdapter extends BaseAdapter{
             rating.setImageResource(android.R.drawable.btn_star_big_off);
         }
 
-
+        //Set a Listener
         rating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

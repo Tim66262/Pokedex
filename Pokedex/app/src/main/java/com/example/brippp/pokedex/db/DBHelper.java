@@ -5,13 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "STUDENT";
+    private static final String DB_NAME = "FAVORITES";
     private static  final int DB_Version = 1;
     private static final String table = "Favorites";
 
