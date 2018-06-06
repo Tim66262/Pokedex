@@ -23,16 +23,10 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 -->
-
-
     <android.support.v7.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="364dp"
         android:layout_height="41dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:background="@color/colorDarkSearch"
         android:goIcon="@color/colorDarkSearch"
         app:layout_constraintEnd_toEndOf="parent"

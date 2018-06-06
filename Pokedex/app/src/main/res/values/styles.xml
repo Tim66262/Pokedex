@@ -8,8 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-<<<<<<< HEAD
-=======
     <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
         <!-- Gets rid of the search icon -->
         <item name="searchIcon">@color/water</item>
@@ -21,5 +19,5 @@
     </style>
 
 
->>>>>>> 58b6e63f4d32c2ffd25fd20e30bc5f78ac5b2c2f
+
 </resources>
