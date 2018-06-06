@@ -25,7 +25,7 @@
 -->
     <android.support.v7.widget.SearchView
         android:id="@+id/searchView"
-        android:layout_width="364dp"
+        android:layout_width="383dp"
         android:layout_height="41dp"
         android:background="@color/colorDarkSearch"
         android:goIcon="@color/colorDarkSearch"
